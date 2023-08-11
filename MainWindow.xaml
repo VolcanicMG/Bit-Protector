@@ -1,0 +1,86 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PDFEncryptor"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        x:Class="PDFEncryptor.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Grid>
+        <ListBox x:Name="listViewItems"
+                 Margin="198,31,198,235" />
+        <Label Content="Password"
+               Margin="616,203,62,179"
+               FontWeight="Bold"
+               FontSize="20"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center" />
+        <PasswordBox x:Name="passwordTextBox"
+                     HorizontalAlignment="Left"
+                     Margin="588,260,0,0"
+                     VerticalAlignment="Top"
+                     Width="178"
+                     Height="32"
+                     FontSize="18" />
+        <CheckBox x:Name="strongerEncrptionCheckBox"
+                  Content="Stronger Encryption"
+                  HorizontalAlignment="Left"
+                  Margin="588,297,0,0"
+                  VerticalAlignment="Top"
+                  FontSize="16"
+                  IsChecked="False"
+                  Width="178"
+                  FontWeight="Bold" />
+        <Button x:Name="deleteSelected"
+                Content="Delete Selected"
+                HorizontalAlignment="Left"
+                Margin="628,31,0,0"
+                VerticalAlignment="Top"
+                Height="46"
+                Width="138"
+                Click="deleteSelected_Click"
+                FontWeight="Bold"
+                FontSize="16" />
+        <Button x:Name="encryptBttn"
+                Content="Encrypt All&#xD;&#xA;"
+                Margin="608,322,0,0"
+                Height="60"
+                Width="138"
+                Click="encryptBttn_Click"
+                FontWeight="Bold"
+                FontSize="14"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="0.5,0.5"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Bottom">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform Y="0" />
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Canvas Margin="288,199,285,19">
+            <StackPanel x:Name="dragAndDropPanel"
+                        Height="200"
+                        Width="200"
+                        DragEnter="dragAndDropPanel_DragEnter"
+                        Drop="dragAndDropPanel_DragDrop"
+                        MouseDown="dragAndDropPanel_Click"
+                        AllowDrop="True"
+                        HorizontalAlignment="Left"
+                        Canvas.Left="14"
+                        VerticalAlignment="Top"
+                        Canvas.Top="8"
+                        Background="#FFABABAB" />
+        </Canvas>
+    </Grid>
+</Window>
