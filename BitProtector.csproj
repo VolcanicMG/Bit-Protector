@@ -8,10 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetZip" Version="1.16.0" />
     <PackageReference Include="itext7" Version="8.0.1" />
     <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.1" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
+    <PackageReference Include="Microsoft.Office.Interop.Word" Version="15.0.4797.1004" />
   </ItemGroup>
 
 </Project>
