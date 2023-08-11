@@ -4,83 +4,138 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDFEncryptor"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:viewModel="clr-namespace:PDFEncryptor.MVM.ViewModel"
         x:Class="PDFEncryptor.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
-        Width="800">
+        Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+  <Window.DataContext>
+    <viewModel:MainViewModel />
+  </Window.DataContext>
+  <Border Background="#272537"
+          CornerRadius="20">
     <Grid>
-        <ListBox x:Name="listViewItems"
-                 Margin="198,31,198,235" />
-        <Label Content="Password"
-               Margin="616,203,62,179"
-               FontWeight="Bold"
-               FontSize="20"
-               HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center" />
-        <PasswordBox x:Name="passwordTextBox"
-                     HorizontalAlignment="Left"
-                     Margin="588,260,0,0"
-                     VerticalAlignment="Top"
-                     Width="178"
-                     Height="32"
-                     FontSize="18" />
-        <CheckBox x:Name="strongerEncrptionCheckBox"
-                  Content="Stronger Encryption"
-                  HorizontalAlignment="Left"
-                  Margin="588,297,0,0"
-                  VerticalAlignment="Top"
-                  FontSize="16"
-                  IsChecked="False"
-                  Width="178"
-                  FontWeight="Bold" />
-        <Button x:Name="deleteSelected"
-                Content="Delete Selected"
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="200" />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="75" />
+        <RowDefinition />
+      </Grid.RowDefinitions>
+
+      <TextBlock Text="PDF Protector"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"
+                 Foreground="white"
+                 FontSize="22"
+                 Margin="20,0,0,0">
+      </TextBlock>
+
+      <StackPanel Grid.Row="1">
+        <RadioButton Content="Home"
+                     Height="50"
+                     Foreground="White"
+                     FontSize="14"
+                     Style="{StaticResource MenuButtonTheme}"
+                     IsChecked="True"
+                     Command="{Binding HomeViewCommand}" />
+        <RadioButton Content="Discovery"
+                     Height="50"
+                     Foreground="White"
+                     FontSize="14"
+                     Style="{StaticResource MenuButtonTheme}"
+                     Command="{Binding DiscoveryViewCommand}" />
+        <RadioButton Content="Featured"
+                     Height="50"
+                     Foreground="White"
+                     FontSize="14"
+                     Style="{StaticResource MenuButtonTheme}" />
+      </StackPanel>
+      <TextBox Width="250"
+               Height="40"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left"
+               Margin="5"
+               Grid.Column="1"
+               Style="{StaticResource ModernTextBox}"/>
+
+      <ContentControl Grid.Row="1"
+                      Grid.Column="1"
+                      Margin="10"
+                      Content="{Binding CurrentView}"/>
+
+      <!--| Old Items Below this Line |-->
+
+      <ListBox x:Name="listViewItems"
+               Margin="198,31,198,235" />
+      <Label Content="Password"
+             Margin="616,203,62,179"
+             FontWeight="Bold"
+             FontSize="20"
+             HorizontalContentAlignment="Center"
+             VerticalContentAlignment="Center"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center" />
+      <PasswordBox x:Name="passwordTextBox"
+                   HorizontalAlignment="Left"
+                   Margin="588,260,0,0"
+                   VerticalAlignment="Top"
+                   Width="178"
+                   Height="32"
+                   FontSize="18" />
+      <CheckBox x:Name="strongerEncrptionCheckBox"
+                Content="Stronger Encryption"
                 HorizontalAlignment="Left"
-                Margin="628,31,0,0"
+                Margin="588,297,0,0"
                 VerticalAlignment="Top"
-                Height="46"
-                Width="138"
-                Click="deleteSelected_Click"
-                FontWeight="Bold"
-                FontSize="16" />
-        <Button x:Name="encryptBttn"
-                Content="Encrypt All&#xD;&#xA;"
-                Margin="608,322,0,0"
-                Height="60"
-                Width="138"
-                Click="encryptBttn_Click"
-                FontWeight="Bold"
-                FontSize="14"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                RenderTransformOrigin="0.5,0.5"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Bottom">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform />
-                    <TranslateTransform Y="0" />
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Canvas Margin="288,199,285,19">
-            <StackPanel x:Name="dragAndDropPanel"
-                        Height="200"
-                        Width="200"
-                        DragEnter="dragAndDropPanel_DragEnter"
-                        Drop="dragAndDropPanel_DragDrop"
-                        MouseDown="dragAndDropPanel_Click"
-                        AllowDrop="True"
-                        HorizontalAlignment="Left"
-                        Canvas.Left="14"
-                        VerticalAlignment="Top"
-                        Canvas.Top="8"
-                        Background="#FFABABAB" />
-        </Canvas>
+                FontSize="16"
+                IsChecked="False"
+                Width="178"
+                FontWeight="Bold" />
+      <Button x:Name="deleteSelected"
+              Content="Delete Selected"
+              HorizontalAlignment="Left"
+              Margin="628,31,0,0"
+              VerticalAlignment="Top"
+              Height="46"
+              Width="138"
+              Click="deleteSelected_Click"
+              FontWeight="Bold"
+              FontSize="16" />
+      <Button x:Name="encryptBttn"
+              Content="Encrypt"
+              HorizontalAlignment="Left"
+              Margin="608,322,0,0"
+              VerticalAlignment="Top"
+              Height="60"
+              Width="138"
+              Click="encryptBttn_Click"
+              FontWeight="Bold"
+              FontSize="14" />
+      <Canvas Margin="288,199,285,19">
+        <StackPanel x:Name="dragAndDropPanel"
+                    Height="200"
+                    Width="200"
+                    DragEnter="dragAndDropPanel_DragEnter"
+                    Drop="dragAndDropPanel_DragDrop"
+                    MouseDown="dragAndDropPanel_Click"
+                    AllowDrop="True"
+                    HorizontalAlignment="Left"
+                    Canvas.Left="14"
+                    VerticalAlignment="Top"
+                    Canvas.Top="8"
+                    Background="#FFABABAB">
+        </StackPanel>
+      </Canvas>
     </Grid>
+  </Border>
+
+
 </Window>
