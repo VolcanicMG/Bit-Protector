@@ -10,13 +10,13 @@ using Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Word;
 using Microsoft.Win32;
 
-namespace BitProtector
+namespace BitProtector.EncryptHelpers
 {
     internal class OfficeFileProtector
     {
         public static void ProtectFileWithPassword(string filePath, string password)
         {
-            string extension = System.IO.Path.GetExtension(filePath).ToLower();
+            string extension = Path.GetExtension(filePath).ToLower();
 
             switch (extension)
             {
@@ -39,7 +39,7 @@ namespace BitProtector
             doc.Password = password;
 
             string savePath = GetSavePath(filePath);
-            doc.SaveAs(System.IO.Path.Combine(savePath, System.IO.Path.ChangeExtension(System.IO.Path.GetFileName(filePath), "_encrypted.docx")));
+            doc.SaveAs(Path.Combine(savePath, Path.ChangeExtension(Path.GetFileName(filePath), "_encrypted.docx")));
             doc.Close();
             wordApp.Quit();
         }
@@ -52,7 +52,7 @@ namespace BitProtector
             workbook.Password = password;
 
             string savePath = GetSavePath(filePath);
-            workbook.SaveAs(System.IO.Path.Combine(savePath, System.IO.Path.ChangeExtension(System.IO.Path.GetFileName(filePath), "_encrypted.xlsx")));
+            workbook.SaveAs(Path.Combine(savePath, Path.ChangeExtension(Path.GetFileName(filePath), "_encrypted.xlsx")));
             workbook.Close();
             excelApp.Quit();
         }
@@ -61,10 +61,10 @@ namespace BitProtector
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Protected Files|*.docx;*.xlsx";
-            saveFileDialog.FileName = System.IO.Path.GetFileNameWithoutExtension(originalFilePath) + "_encrypted";
+            saveFileDialog.FileName = Path.GetFileNameWithoutExtension(originalFilePath) + "_encrypted";
             if (saveFileDialog.ShowDialog() == true)
             {
-                return System.IO.Path.GetDirectoryName(saveFileDialog.FileName);
+                return Path.GetDirectoryName(saveFileDialog.FileName);
             }
             else
             {

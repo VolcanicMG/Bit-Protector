@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace PDFEncryptor
+namespace BitProtector
 {
     /// <summary>
     /// Interaction logic for App.xaml

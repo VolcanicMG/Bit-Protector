@@ -8,7 +8,7 @@ using Ionic.Zip;
 using Microsoft.Win32;
 using System.Windows;
 
-namespace BitProtector
+namespace BitProtector.EncryptHelpers
 {
     internal class ZipProtector
     {
@@ -29,7 +29,7 @@ namespace BitProtector
 
                 // Save the password-protected ZIP file
                 string outputPath = GetSavePath(path);
-                if(!outputPath.Equals("")) zip.Save(outputPath);
+                if (!outputPath.Equals("")) zip.Save(outputPath);
             }
 
             Console.WriteLine("Zip file created and entries password protected using DotNetZip.");
@@ -40,9 +40,9 @@ namespace BitProtector
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "ZIP Files|*.zip";
-            saveFileDialog.FileName = System.IO.Path.GetFileNameWithoutExtension(originalFilePath) + "_encrypted";
+            saveFileDialog.FileName = Path.GetFileNameWithoutExtension(originalFilePath) + "_encrypted";
 
-            return saveFileDialog.ShowDialog() == true ?  saveFileDialog.FileName : "";
+            return saveFileDialog.ShowDialog() == true ? saveFileDialog.FileName : "";
         }
     }
 }
