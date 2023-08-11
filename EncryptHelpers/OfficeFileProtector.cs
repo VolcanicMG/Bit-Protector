@@ -31,6 +31,7 @@ namespace BitProtector.EncryptHelpers
             }
         }
 
+
         private static void ProtectWordDocument(string filePath, string password)
         {
             Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
@@ -44,6 +45,7 @@ namespace BitProtector.EncryptHelpers
             wordApp.Quit();
         }
 
+
         private static void ProtectExcelWorkbook(string filePath, string password)
         {
             Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
@@ -56,6 +58,7 @@ namespace BitProtector.EncryptHelpers
             workbook.Close();
             excelApp.Quit();
         }
+
 
         private static string GetSavePath(string originalFilePath)
         {
