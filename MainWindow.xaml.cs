@@ -10,12 +10,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace PDFEncryptor
+namespace BitProtector
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         SaveFileDialog saveFileDialog;
         OpenFileDialog openFileDialog;
