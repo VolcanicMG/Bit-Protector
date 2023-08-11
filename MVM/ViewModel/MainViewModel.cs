@@ -1,11 +1,11 @@
-﻿using PDFEncryptor.Core;
+﻿using BitProtector.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDFEncryptor.MVM.ViewModel
+namespace BitProtector.MVM.ViewModel
 {
     class MainViewModel : ObservableObject
     {

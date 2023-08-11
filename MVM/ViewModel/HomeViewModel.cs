@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PDFEncryptor.MVM.ViewModel
+namespace BitProtector.MVM.ViewModel
 {
     class HomeViewModel
     {

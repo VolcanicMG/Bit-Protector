@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace PDFEncryptor.Core
+namespace BitProtector.Core
 {
     internal class ObservableObject : INotifyPropertyChanged
     {
