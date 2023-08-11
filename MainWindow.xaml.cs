@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace PDFEncryptor
+namespace BitProtector
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
