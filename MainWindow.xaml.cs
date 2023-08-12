@@ -329,6 +329,11 @@ namespace BitProtector
                 }
             }
         }
+
+        private void ExitBttn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 
 
