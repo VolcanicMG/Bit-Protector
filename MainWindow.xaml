@@ -65,11 +65,33 @@
                      Margin="5"
                      Grid.Column="1"
                      Style="{StaticResource ModernTextBox}" />
+            <Button Width="30"
+                    Height="30"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="top"
+                    Grid.Column="2"
+                    Margin="0,0,0,0"
+                    Background="Transparent"
+                    BorderThickness="0">
+                <Border Width="30"
+                        Height="30"
+                        IsEnabled="False"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Background="Red">
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10"
+                                           RadiusY="10"
+                                           Rect="0,0,30,30" />
+                    </Border.Clip>
+                </Border>
+            </Button>
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10"
                             Content="{Binding CurrentView}" />
+
             <Button x:Name="ExitBttn"
                     Grid.Column="1"
                     Margin="565,0,0,40"
@@ -87,8 +109,6 @@
                     </Style>
                 </Button.Resources>
             </Button>
-
-
 
             <!--| Old Items Below this Line |-->
 
