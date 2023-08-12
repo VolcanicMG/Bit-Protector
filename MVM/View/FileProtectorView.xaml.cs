@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BitProtector.MVM.View
 {
     /// <summary>
-    /// Interaction logic for DiscoveryView.xaml
+    /// Interaction logic for FileProtectorView.xaml
     /// </summary>
-    public partial class DiscoveryView : UserControl
+    public partial class FileProtectorView : UserControl
     {
-        public DiscoveryView()
+        public FileProtectorView()
         {
             InitializeComponent();
         }

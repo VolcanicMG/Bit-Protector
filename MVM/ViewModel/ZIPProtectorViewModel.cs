@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BitProtector.MVM.ViewModel
 {
-    class DiscoveryViewModel
+    class ZIPProtectorViewModel
     {
 
     }

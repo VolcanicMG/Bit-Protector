@@ -10,12 +10,16 @@ namespace BitProtector.MVM.ViewModel
     class MainViewModel : ObservableObject
     {
         public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand DiscoveryViewCommand { get; set; }
         public RelayCommand PDFProtectorViewCommand { get; set; }
+        public RelayCommand ZIPProtectorViewCommand { get; set; }
+        public RelayCommand OfficeProtectorViewCommand { get; set; }
+        public RelayCommand FileProtectorViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
-        public DiscoveryViewModel DiscoveryVM { get; set; }
         public PDFProtectorViewModel PDFProtectorVM { get; set; }
+        public ZIPProtectorViewModel ZIPProtectorVM { get; set; }
+        public OfficeProtectorViewModel OfficeProtectorVM { get; set; }
+        public FileProtectorViewModel FileProtectorVM { get; set; }
 
         private object _currentView;
 
@@ -32,8 +36,10 @@ namespace BitProtector.MVM.ViewModel
         public MainViewModel()
         {
             HomeVM = new HomeViewModel();
-            DiscoveryVM = new DiscoveryViewModel();
             PDFProtectorVM = new PDFProtectorViewModel();
+            ZIPProtectorVM = new ZIPProtectorViewModel();
+            OfficeProtectorVM = new OfficeProtectorViewModel();
+            FileProtectorVM = new FileProtectorViewModel();
 
             CurrentView = HomeVM;
 
@@ -41,13 +47,21 @@ namespace BitProtector.MVM.ViewModel
             {
                 CurrentView = HomeVM;
             });
-            DiscoveryViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = DiscoveryVM;
-            });
             PDFProtectorViewCommand = new RelayCommand(o =>
             {
                 CurrentView = PDFProtectorVM;
+            });
+            ZIPProtectorViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = ZIPProtectorVM;
+            });
+            OfficeProtectorViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = OfficeProtectorVM;
+            });
+            FileProtectorViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = FileProtectorVM;
             });
         }
     }

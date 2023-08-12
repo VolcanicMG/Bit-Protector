@@ -7,21 +7,35 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <!--Theme Dictionaries-->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
                 <ResourceDictionary Source="Theme/TextBoxTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
+
+            <!--Home ViewModel-->
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView />
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:DiscoveryViewModel}">
-                <view:DiscoveryView />
-            </DataTemplate>
-
+            <!--PDFProtector ViewModel-->
             <DataTemplate DataType="{x:Type viewModel:PDFProtectorViewModel}">
                 <view:PDFProtectorView />
+            </DataTemplate>
+
+            <!--ZIPProtector ViewModel-->
+            <DataTemplate DataType="{x:Type viewModel:ZIPProtectorViewModel}">
+                <view:ZIPProtectorView />
+            </DataTemplate>
+
+            <!--OfficeProtector ViewModel-->
+            <DataTemplate DataType="{x:Type viewModel:OfficeProtectorViewModel}">
+                <view:OfficeProtectorView />
+            </DataTemplate>
+
+            <!--FileProtector ViewModel-->
+            <DataTemplate DataType="{x:Type viewModel:FileProtectorViewModel}">
+                <view:FileProtectorView />
             </DataTemplate>
 
         </ResourceDictionary>
