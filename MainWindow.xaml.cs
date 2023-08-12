@@ -334,6 +334,11 @@ namespace BitProtector
         {
             Application.Current.Shutdown();
         }
+
+        private void MinimizeBttn_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 
 
