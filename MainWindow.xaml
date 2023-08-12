@@ -71,7 +71,8 @@
                     VerticalAlignment="top"
                     Grid.Column="2"
                     Margin="0,0,0,0"
-                    Background="Transparent">
+                    Background="Transparent"
+                    BorderThickness="0">
                 <Border Width="30"
                         Height="30"
                         IsEnabled="False"
