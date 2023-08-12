@@ -17,8 +17,12 @@
     <Window.DataContext>
         <viewModel:MainViewModel />
     </Window.DataContext>
-    <Border Background="#272537"
+
+    <!--Main Background Object-->
+    <Border Background="#323232"
             CornerRadius="20">
+
+        <!--Main Grid Object-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
@@ -30,6 +34,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
+            <!--App Selection Menu Background-->
             <Border Width="200"
                     Height="450"
                     Background="#232323"
@@ -37,7 +42,7 @@
                     VerticalAlignment="Top"
                     HorizontalAlignment="Stretch"
                     CornerRadius="20,0,20,0" />
-
+            <!--TopLeft App Menubar Background-->
             <Border Width="200"
                     Height="50"
                     Background="#232323"
@@ -46,7 +51,8 @@
                     HorizontalAlignment="Stretch"
                     CornerRadius="20,00,0,0"
                     MouseLeftButtonDown="Border_MouseLeftButtonDown" />
-            <Border Width="600"
+            <!--TopRight App Menubar Background-->
+            <Border Width="640"
                     Height="50"
                     Background="#232323"
                     Grid.Column="1"
@@ -55,17 +61,19 @@
                     CornerRadius="0,20,0,0"
                     MouseLeftButtonDown="Border_MouseLeftButtonDown" />
 
+            <!--App Title-->
             <TextBlock Text="PDF Protector"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Foreground="white"
                        FontSize="24"
                        FontFamily="Times New Roman"
-                       Margin="20,0,0,2">
-            </TextBlock>
+                       Margin="20,0,0,2" />
 
+            <!--App Selection Menu-->
             <StackPanel Grid.Row="1"
                         Background="#454545">
+                <!--Home-->
                 <RadioButton Content="Home"
                              Height="50"
                              Foreground="White"
@@ -73,25 +81,38 @@
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
                              Command="{Binding HomeViewCommand}" />
-                    <RadioButton Content="PDF Protector"
+                <!--PDF Protector-->
+                <RadioButton Content="PDF Protector"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding PDFProtectorViewCommand}"
                              Panel.ZIndex="10" />
-                <RadioButton Content=".ZIP Protector"
+                <!--Zip Protector-->
+                <RadioButton Content="ZIP Protector"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding DiscoveryViewCommand}" />
-                <RadioButton Content="Office File Protector"
+                             Command="{Binding ZIPProtectorViewCommand}" />
+                <!--Office Protector-->
+                <RadioButton Content="Office Protector"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}" />
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding OfficeProtectorViewCommand}" />
+                <!--File Protector-->
+                <RadioButton Content="File Protector"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding FileProtectorViewCommand}" />
             </StackPanel>
+
+            <!--Exit Button-->
             <Button x:Name="ExitBttn"
                     Width="25"
                     Height="25"
@@ -117,9 +138,10 @@
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
                                FontSize="12" />
-    </Border>
-    </Button>
-    <Button x:Name="MinimizeBttn"
+                </Border>
+            </Button>
+            <!--Minimize Button-->
+            <Button x:Name="MinimizeBttn"
                     Width="25"
                     Height="25"
                     HorizontalAlignment="Right"
@@ -129,7 +151,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     Click="MinimizeBttn_Click">
-            <Border Width="20"
+                <Border Width="20"
                         Height="20"
                         IsEnabled="False"
                         VerticalAlignment="Top"
@@ -146,6 +168,7 @@
                                FontSize="20" />
                 </Border>
             </Button>
+            <!--Settings Button-->
             <Button x:Name="SettingsBttn"
                     Width="25"
                     Height="25"
@@ -172,6 +195,7 @@
                                FontSize="15" />
                 </Border>
             </Button>
+            <!--Help Button-->
             <Button x:Name="HelpBttn"
                     Width="25"
                     Height="25"
@@ -199,6 +223,7 @@
                 </Border>
             </Button>
 
+            <!--Content Control Area-->
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10"
