@@ -20,6 +20,10 @@
                 <view:DiscoveryView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:PDFProtectorViewModel}">
+                <view:PDFProtectorView />
+            </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
