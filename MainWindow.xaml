@@ -49,10 +49,10 @@
                     Grid.Column="0"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Stretch"
-                    CornerRadius="20,00,0,0"
+                    CornerRadius="20,0,0,0"
                     MouseLeftButtonDown="Border_MouseLeftButtonDown" />
             <!--TopRight App Menubar Background-->
-            <Border Width="640"
+            <Border Width="600"
                     Height="50"
                     Background="#232323"
                     Grid.Column="1"
@@ -72,7 +72,9 @@
 
             <!--App Selection Menu-->
             <StackPanel Grid.Row="1"
-                        Background="#454545">
+                        Background="#454545"
+                        Height="370"
+                        VerticalAlignment="Top">
                 <!--Home-->
                 <RadioButton Content="Home"
                              Height="50"
@@ -111,6 +113,25 @@
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding FileProtectorViewCommand}" />
             </StackPanel>
+
+            <!--App Selection Menu Bottom Boundary-->
+            <Border Width="200"
+                    Height="30"
+                    Background="#454545"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Stretch"
+                    CornerRadius="0,0,0,20"
+                    MouseLeftButtonDown="Border_MouseLeftButtonDown">
+                <!--App Selection Menu Version Tag-->
+                <TextBlock Text="Version 1.0.0 - © BitProtector 2023"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="#787878"
+                           FontFamily="Times New Roman"
+                           FontSize="11"/>
+            </Border>
 
             <!--Exit Button-->
             <Button x:Name="ExitBttn"
