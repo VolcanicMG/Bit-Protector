@@ -65,11 +65,33 @@
                      Margin="5"
                      Grid.Column="1"
                      Style="{StaticResource ModernTextBox}" />
+            <Button Width="30"
+                    Height="30"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="top"
+                    Grid.Column="2"
+                    Margin="0,0,0,0"
+                    Background="Transparent">
+                <Border Width="30"
+                        Height="30"
+                        IsEnabled="False"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Background="Red">
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="10"
+                                           RadiusY="10"
+                                           Rect="0,0,30,30" />
+                    </Border.Clip>
+                </Border>
+            </Button>
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
                             Margin="10"
                             Content="{Binding CurrentView}" />
+            
+            
 
             <!--| Old Items Below this Line |-->
 
@@ -99,16 +121,6 @@
                       IsChecked="False"
                       Width="178"
                       FontWeight="Bold" />
-            <Button x:Name="deleteSelected"
-                    Content="Delete Selected"
-                    HorizontalAlignment="Left"
-                    Margin="628,31,0,0"
-                    VerticalAlignment="Top"
-                    Height="46"
-                    Width="138"
-                    Click="deleteSelected_Click"
-                    FontWeight="Bold"
-                    FontSize="16" />
             <Button x:Name="encryptBttn"
                     Content="Encrypt"
                     HorizontalAlignment="Left"
@@ -128,9 +140,9 @@
                             MouseDown="dragAndDropPanel_Click"
                             AllowDrop="True"
                             HorizontalAlignment="Left"
-                            Canvas.Left="14"
+                            Canvas.Left="-65"
                             VerticalAlignment="Top"
-                            Canvas.Top="8"
+                            Canvas.Top="158"
                             Background="#FFABABAB">
                 </StackPanel>
             </Canvas>
