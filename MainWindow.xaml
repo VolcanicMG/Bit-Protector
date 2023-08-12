@@ -26,27 +26,54 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="75" />
+                <RowDefinition Height="50" />
                 <RowDefinition />
             </Grid.RowDefinitions>
+
+            <Border Width="200"
+                    Height="450"
+                    Background="#232323"
+                    Grid.Column="0"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Stretch"
+                    CornerRadius="20,0,20,0" />
+
+            <Border Width="200"
+                    Height="50"
+                    Background="#232323"
+                    Grid.Column="0"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Stretch"
+                    CornerRadius="20,00,0,0"
+                    MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+            <Border Width="600"
+                    Height="50"
+                    Background="#232323"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Stretch"
+                    CornerRadius="0,20,0,0"
+                    MouseLeftButtonDown="Border_MouseLeftButtonDown" />
 
             <TextBlock Text="PDF Protector"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Foreground="white"
-                       FontSize="22"
-                       Margin="20,0,0,0">
+                       FontSize="24"
+                       FontFamily="Times New Roman"
+                       Margin="20,0,0,2">
             </TextBlock>
 
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1"
+                        Background="#454545">
                 <RadioButton Content="Home"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
-                             Command="{Binding HomeViewCommand}"/>
-                <RadioButton Content="PDF Protector"
+                             Command="{Binding HomeViewCommand}" />
+                    <RadioButton Content="PDF Protector"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
@@ -75,8 +102,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     Click="ExitBttn_Click">
-                <Border
-                        Width="20"
+                <Border Width="20"
                         Height="20"
                         IsEnabled="False"
                         VerticalAlignment="Top"
@@ -91,9 +117,9 @@
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
                                FontSize="12" />
-                </Border>
-            </Button>
-            <Button  x:Name="MinimizeBttn" 
+    </Border>
+    </Button>
+    <Button x:Name="MinimizeBttn"
                     Width="25"
                     Height="25"
                     HorizontalAlignment="Right"
@@ -102,8 +128,8 @@
                     Margin="0,10,40,0"
                     Background="Transparent"
                     BorderThickness="0"
-                     Click="MinimizeBttn_Click">
-                <Border Width="20"
+                    Click="MinimizeBttn_Click">
+            <Border Width="20"
                         Height="20"
                         IsEnabled="False"
                         VerticalAlignment="Top"
@@ -120,6 +146,58 @@
                                FontSize="20" />
                 </Border>
             </Button>
+            <Button x:Name="SettingsBttn"
+                    Width="25"
+                    Height="25"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="top"
+                    Grid.Column="2"
+                    Margin="0,10,70,0"
+                    Background="Transparent"
+                    BorderThickness="0">
+                <Border Width="20"
+                        Height="20"
+                        IsEnabled="False"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Background="Gray">
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="40"
+                                           RadiusY="40"
+                                           Rect="0,0,20,20" />
+                    </Border.Clip>
+                    <TextBlock Text="⚙"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               FontSize="15" />
+                </Border>
+            </Button>
+            <Button x:Name="HelpBttn"
+                    Width="25"
+                    Height="25"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="top"
+                    Grid.Column="2"
+                    Margin="0,10,100,0"
+                    Background="Transparent"
+                    BorderThickness="0">
+                <Border Width="20"
+                        Height="20"
+                        IsEnabled="False"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Background="Teal">
+                    <Border.Clip>
+                        <RectangleGeometry RadiusX="40"
+                                           RadiusY="40"
+                                           Rect="0,0,20,20" />
+                    </Border.Clip>
+                    <TextBlock Text="?"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               FontSize="16" />
+                </Border>
+            </Button>
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
@@ -128,6 +206,4 @@
 
         </Grid>
     </Border>
-
-
 </Window>
