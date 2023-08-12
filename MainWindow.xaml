@@ -73,13 +73,14 @@
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
                              Command="{Binding HomeViewCommand}" />
-                <RadioButton Content="PDF Protector"
+                    <RadioButton Content="PDF Protector"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding PDFProtectorViewCommand}" />
-                <RadioButton Content="Discovery"
+                             Command="{Binding PDFProtectorViewCommand}"
+                             Panel.ZIndex="10" />
+                <RadioButton Content=".ZIP Protector"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
@@ -116,9 +117,9 @@
                                VerticalAlignment="Center"
                                HorizontalAlignment="Center"
                                FontSize="12" />
-                </Border>
-            </Button>
-            <Button x:Name="MinimizeBttn"
+    </Border>
+    </Button>
+    <Button x:Name="MinimizeBttn"
                     Width="25"
                     Height="25"
                     HorizontalAlignment="Right"
@@ -128,7 +129,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     Click="MinimizeBttn_Click">
-                <Border Width="20"
+            <Border Width="20"
                         Height="20"
                         IsEnabled="False"
                         VerticalAlignment="Top"
