@@ -58,7 +58,8 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}" />
             </StackPanel>
-            <Button Width="25"
+            <Button x:Name="ExitBttn"
+                    Width="25"
                     Height="25"
                     HorizontalAlignment="Right"
                     VerticalAlignment="top"
