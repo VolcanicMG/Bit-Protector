@@ -30,12 +30,13 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="PDF Protector"
+            <TextBlock Text="Bit Protector"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Foreground="white"
                        FontSize="22"
-                       Margin="20,0,0,0">
+                       Margin="20,0,0,0"
+                       FontWeight="Bold">
             </TextBlock>
 
             <StackPanel Grid.Row="1">
@@ -128,9 +129,9 @@
                             MouseDown="dragAndDropPanel_Click"
                             AllowDrop="True"
                             HorizontalAlignment="Left"
-                            Canvas.Left="14"
+                            Canvas.Left="85"
                             VerticalAlignment="Top"
-                            Canvas.Top="8"
+                            Canvas.Top="2"
                             Background="#FFABABAB">
                 </StackPanel>
             </Canvas>
