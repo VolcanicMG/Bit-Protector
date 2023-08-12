@@ -11,9 +11,11 @@ namespace BitProtector.MVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand DiscoveryViewCommand { get; set; }
+        public RelayCommand PDFProtectorViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public DiscoveryViewModel DiscoveryVM { get; set; }
+        public PDFProtectorViewModel PDFProtectorVM { get; set; }
 
         private object _currentView;
 
@@ -41,6 +43,10 @@ namespace BitProtector.MVM.ViewModel
             DiscoveryViewCommand = new RelayCommand(o =>
             {
                 CurrentView = DiscoveryVM;
+            });
+            PDFProtectorViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = PDFProtectorVM;
             });
         }
     }

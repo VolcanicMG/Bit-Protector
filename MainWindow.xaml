@@ -46,6 +46,12 @@
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
                              Command="{Binding HomeViewCommand}" />
+                <RadioButton Content="PDFProtector"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding PDFProtectorViewCommand}" />
                 <RadioButton Content="Discovery"
                              Height="50"
                              Foreground="White"
@@ -170,6 +176,10 @@
                             Background="#FFABABAB">
                 </StackPanel>
             </Canvas>
+            <ProgressBar Grid.Column="1"
+                         HorizontalAlignment="Center"
+                         Margin="0,49,0,10"
+                         Width="580" />
         </Grid>
     </Border>
 
