@@ -1,12 +1,105 @@
 ﻿<UserControl x:Class="BitProtector.MVM.View.PDFProtectorView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:BitProtector.MVM.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             d:DesignHeight="380"
+             d:DesignWidth="580">
     <Grid>
-            
+        <StackPanel x:Name="dragAndDropPanel"
+                    Height="85"
+                    Width="180"
+                    DragEnter="dragAndDropPanel_DragEnter"
+                    Drop="dragAndDropPanel_DragDrop"
+                    MouseDown="dragAndDropPanel_Click"
+                    AllowDrop="True"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Canvas.Top="8"
+                    Canvas.Left="8"
+                    Background="#FFABABAB"
+                    Margin="0,262,0,0" />
+        <ListBox x:Name="listViewItems"
+                 Height="144"
+                 Canvas.Left="-51"
+                 RenderTransformOrigin="0.5,0.5"
+                 Canvas.Top="-259"
+                 Width="294"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 Margin="0,10,0,0">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"
+                                    ScaleY="-1" />
+                    <SkewTransform />
+                    <RotateTransform Angle="-180.225" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
+        <Label Content="Password"
+               FontWeight="Bold"
+               FontSize="20"
+               HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Canvas.Left="-155"
+               Canvas.Top="-14"
+               Background="{x:Null}"
+               Foreground="White"
+               Margin="0,159,0,0"
+               Height="38"
+               Width="102" />
+        <PasswordBox x:Name="passwordTextBox"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Top"
+                     Width="132"
+                     Height="24"
+                     FontSize="18"
+                     Canvas.Left="-183"
+                     Canvas.Top="43"
+                     Margin="0,197,0,0" />
+        <CheckBox x:Name="strongerEncrptionCheckBox"
+                  Content="Stronger Encryption"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  FontSize="16"
+                  IsChecked="False"
+                  Width="175"
+                  FontWeight="Bold"
+                  Canvas.Left="-183"
+                  Canvas.Top="80"
+                  Foreground="White"
+                  Margin="395,262,0,0"
+                  Height="21" />
+        <Button x:Name="encryptBttn"
+                Content="Encrypt"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Height="33"
+                Width="101"
+                Click="encryptBttn_Click"
+                FontWeight="Bold"
+                FontSize="14"
+                Canvas.Left="-163"
+                Canvas.Top="105"
+                Margin="0,224,0,0" />
+        <Button x:Name="deleteSelectedBttn"
+                HorizontalAlignment="Left"
+                Margin="445,61,0,0"
+                VerticalAlignment="Top"
+                Height="42"
+                Width="125"
+                Click="deleteSelectedBttn_Click">
+            <Button Content="Delete Selected"
+                    Height="35"
+                    Width="119"
+                    FontWeight="Bold"
+                    FontSize="16" />
+        </Button>
     </Grid>
 </UserControl>

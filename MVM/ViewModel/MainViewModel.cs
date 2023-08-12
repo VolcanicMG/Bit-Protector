@@ -33,6 +33,7 @@ namespace BitProtector.MVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             DiscoveryVM = new DiscoveryViewModel();
+            PDFProtectorVM = new PDFProtectorViewModel();
 
             CurrentView = HomeVM;
 

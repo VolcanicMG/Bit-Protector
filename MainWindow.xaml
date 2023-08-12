@@ -45,20 +45,21 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"
-                             Command="{Binding HomeViewCommand}" />
-                <RadioButton Content="PDFProtector"
+                             Command="{Binding HomeViewCommand}"/>
+                <RadioButton Content="PDF Protector"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding PDFProtectorViewCommand}" />
-                <RadioButton Content="Discovery"
+                             Command="{Binding PDFProtectorViewCommand}"
+                             Panel.ZIndex="10" />
+                <RadioButton Content=".ZIP Protector"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding DiscoveryViewCommand}" />
-                <RadioButton Content="Featured"
+                <RadioButton Content="Office File Protector"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
@@ -72,8 +73,10 @@
                     Grid.Column="2"
                     Margin="0,10,10,0"
                     Background="Transparent"
-                    BorderThickness="0">
-                <Border Width="20"
+                    BorderThickness="0"
+                    Click="ExitBttn_Click">
+                <Border
+                        Width="20"
                         Height="20"
                         IsEnabled="False"
                         VerticalAlignment="Top"
@@ -90,14 +93,16 @@
                                FontSize="12" />
                 </Border>
             </Button>
-            <Button Width="25"
+            <Button  x:Name="MinimizeBttn" 
+                    Width="25"
                     Height="25"
                     HorizontalAlignment="Right"
                     VerticalAlignment="top"
                     Grid.Column="2"
                     Margin="0,10,40,0"
                     Background="Transparent"
-                    BorderThickness="0">
+                    BorderThickness="0"
+                     Click="MinimizeBttn_Click">
                 <Border Width="20"
                         Height="20"
                         IsEnabled="False"
@@ -121,65 +126,6 @@
                             Margin="10"
                             Content="{Binding CurrentView}" />
 
-
-
-            <!--| Old Items Below this Line |-->
-
-            <ListBox x:Name="listViewItems"
-                     Margin="198,31,198,235" />
-            <Label Content="Password"
-                   Margin="616,203,62,179"
-                   FontWeight="Bold"
-                   FontSize="20"
-                   HorizontalContentAlignment="Center"
-                   VerticalContentAlignment="Center"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
-            <PasswordBox x:Name="passwordTextBox"
-                         HorizontalAlignment="Left"
-                         Margin="588,260,0,0"
-                         VerticalAlignment="Top"
-                         Width="178"
-                         Height="32"
-                         FontSize="18" />
-            <CheckBox x:Name="strongerEncrptionCheckBox"
-                      Content="Stronger Encryption"
-                      HorizontalAlignment="Left"
-                      Margin="588,297,0,0"
-                      VerticalAlignment="Top"
-                      FontSize="16"
-                      IsChecked="False"
-                      Width="178"
-                      FontWeight="Bold" />
-            <Button x:Name="encryptBttn"
-                    Content="Encrypt"
-                    HorizontalAlignment="Left"
-                    Margin="608,322,0,0"
-                    VerticalAlignment="Top"
-                    Height="60"
-                    Width="138"
-                    Click="encryptBttn_Click"
-                    FontWeight="Bold"
-                    FontSize="14" />
-            <Canvas Margin="288,199,285,19">
-                <StackPanel x:Name="dragAndDropPanel"
-                            Height="47"
-                            Width="399"
-                            DragEnter="dragAndDropPanel_DragEnter"
-                            Drop="dragAndDropPanel_DragDrop"
-                            MouseDown="dragAndDropPanel_Click"
-                            AllowDrop="True"
-                            HorizontalAlignment="Left"
-                            Canvas.Left="-77"
-                            VerticalAlignment="Center"
-                            Canvas.Top="173"
-                            Background="#FFABABAB">
-                </StackPanel>
-            </Canvas>
-            <ProgressBar Grid.Column="1"
-                         HorizontalAlignment="Center"
-                         Margin="0,49,0,10"
-                         Width="580" />
         </Grid>
     </Border>
 
