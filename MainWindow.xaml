@@ -70,14 +70,16 @@
                             Grid.Column="1"
                             Margin="10"
                             Content="{Binding CurrentView}" />
-            <Button Grid.Column="1"
+            <Button x:Name="ExitBttn"
+                    Grid.Column="1"
                     Margin="565,0,0,40"
                     Width="35"
                     Height="35"
                     BorderThickness="0,0,0,0"
                     SnapsToDevicePixels="True"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
+                    VerticalAlignment="Center"
+                    Click="ExitBttn_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius"
