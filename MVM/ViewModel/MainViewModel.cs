@@ -12,13 +12,11 @@ namespace BitProtector.MVM.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand PDFProtectorViewCommand { get; set; }
         public RelayCommand ZIPProtectorViewCommand { get; set; }
-        public RelayCommand OfficeProtectorViewCommand { get; set; }
         public RelayCommand FileProtectorViewCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public PDFProtectorViewModel PDFProtectorVM { get; set; }
         public ZIPProtectorViewModel ZIPProtectorVM { get; set; }
-        public OfficeProtectorViewModel OfficeProtectorVM { get; set; }
         public FileProtectorViewModel FileProtectorVM { get; set; }
 
         private object _currentView;
@@ -38,7 +36,6 @@ namespace BitProtector.MVM.ViewModel
             HomeVM = new HomeViewModel();
             PDFProtectorVM = new PDFProtectorViewModel();
             ZIPProtectorVM = new ZIPProtectorViewModel();
-            OfficeProtectorVM = new OfficeProtectorViewModel();
             FileProtectorVM = new FileProtectorViewModel();
 
             CurrentView = HomeVM;
@@ -54,10 +51,6 @@ namespace BitProtector.MVM.ViewModel
             ZIPProtectorViewCommand = new RelayCommand(o =>
             {
                 CurrentView = ZIPProtectorVM;
-            });
-            OfficeProtectorViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = OfficeProtectorVM;
             });
             FileProtectorViewCommand = new RelayCommand(o =>
             {
