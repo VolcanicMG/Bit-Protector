@@ -56,6 +56,7 @@ namespace BitProtector.MVM.View
             {
                 MessageBox.Show("Password is blank!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+            else if (listViewItems.Items.Count <= 0) MessageBox.Show("No items to encrypt...", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             else
             {
 

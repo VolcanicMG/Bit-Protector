@@ -29,6 +29,11 @@ namespace BitProtector.EncryptHelpers
         }
 
 
+        /// <summary>
+        /// Gets the save path for a .zip file
+        /// </summary>
+        /// <param name="originalFilePath"></param>
+        /// <returns></returns>
         private string GetSavePath(string originalFilePath)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -39,6 +44,11 @@ namespace BitProtector.EncryptHelpers
         }
 
 
+        /// <summary>
+        /// Validates the file a .zip
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public bool ZIPValidater(string path)
         {
             if (File.Exists(path))

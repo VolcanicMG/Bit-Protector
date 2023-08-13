@@ -28,11 +28,6 @@
                 <view:ZIPProtectorView />
             </DataTemplate>
 
-            <!--OfficeProtector ViewModel-->
-            <DataTemplate DataType="{x:Type viewModel:OfficeProtectorViewModel}">
-                <view:OfficeProtectorView />
-            </DataTemplate>
-
             <!--FileProtector ViewModel-->
             <DataTemplate DataType="{x:Type viewModel:FileProtectorViewModel}">
                 <view:FileProtectorView />

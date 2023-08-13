@@ -98,13 +98,6 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding ZIPProtectorViewCommand}" />
-                <!--Office Protector-->
-                <RadioButton Content="Office Protector"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding OfficeProtectorViewCommand}" />
                 <!--File Protector-->
                 <RadioButton Content="File Protector"
                              Height="50"
