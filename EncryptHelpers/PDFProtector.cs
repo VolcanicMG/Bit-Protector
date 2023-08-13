@@ -32,6 +32,7 @@ namespace BitProtector.EncryptHelpers
             saveFileDialog = new SaveFileDialog();
             openFileDialog = new OpenFileDialog();
 
+            openFileDialog.Filter = "PDF Files|*.pdf|All Files|*.*";
             saveFileDialog.Filter = "PDF Files|*.pdf|All Files|*.*";
         }
 
@@ -111,10 +112,7 @@ namespace BitProtector.EncryptHelpers
         private void ResetList()
         {
             //Remove encrypted files from the list
-            for (int i = 0; i < listViewItems.Items.Count; i++)
-            {
-                listViewItems.Items.Clear();
-            }
+            listViewItems.Items.Clear();
         }
 
 
