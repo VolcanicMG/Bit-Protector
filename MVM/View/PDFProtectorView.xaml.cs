@@ -38,6 +38,8 @@ namespace BitProtector.MVM.View
         private void dragAndDropPanel_DragEnter(object sender, DragEventArgs e)
         {
             e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
+
+            dragAndDropLabel.Text = "Upload";
         }
 
 
@@ -137,6 +139,9 @@ namespace BitProtector.MVM.View
 
                         listViewItems.Items.Add(newCheckBox);
                         pdfProtector.files.Add(new NameToPath(MainWindow.GetFileName(file), file));
+
+                        //Resets the text
+                        dragAndDropLabel.Text = "Drag and drop files here";
                     }
                     else nonPDF = true;
                 }
@@ -146,9 +151,16 @@ namespace BitProtector.MVM.View
             }
         }
 
+
         private void deleteSelectedBttn_Click(object sender, RoutedEventArgs e)
         {
             pdfProtector.DeleteSelected();
+        }
+
+
+        private void Rectangle_DragLeave(object sender, DragEventArgs e)
+        {
+            dragAndDropLabel.Text = "Drag and drop files here";
         }
     }
 }
