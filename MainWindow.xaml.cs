@@ -19,7 +19,6 @@ namespace BitProtector
     /// </summary>
     public partial class MainWindow : System.Windows.Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
@@ -103,7 +102,6 @@ namespace BitProtector
         public static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-
 
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
