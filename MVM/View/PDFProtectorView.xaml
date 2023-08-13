@@ -7,29 +7,46 @@
              mc:Ignorable="d"
              d:DesignHeight="380"
              d:DesignWidth="580">
+
     <Grid>
-        <StackPanel x:Name="dragAndDropPanel"
-                    Height="85"
-                    Width="180"
-                    DragEnter="dragAndDropPanel_DragEnter"
-                    Drop="dragAndDropPanel_DragDrop"
-                    MouseDown="dragAndDropPanel_Click"
-                    AllowDrop="True"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Canvas.Top="8"
-                    Canvas.Left="8"
-                    Background="#FFABABAB"
-                    Margin="0,262,0,0" />
+        <Grid Margin="2,0,-2,0">
+            <Border BorderBrush="Black"
+                    BorderThickness="2"
+                    AllowDrop="True">
+                <!-- Content of the main Border -->
+            </Border>
+            <Grid Margin="105,190,105,0">
+                <Rectangle Stroke="White"
+                           StrokeDashArray="2,2"
+                           StrokeThickness="4"
+                           AllowDrop="True"
+                           DragEnter="dragAndDropPanel_DragEnter"
+                           Drop="dragAndDropPanel_DragDrop"
+                           MouseDown="dragAndDropPanel_Click"
+                           DragLeave="Rectangle_DragLeave"
+                           Margin="10,10,10,10"
+                           Fill="#FFDDDDDD" />
+                <TextBlock x:Name="dragAndDropLabel"
+                           Text="Drag and drop files here (Click to pick a file)"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           DragEnter="dragAndDropPanel_DragEnter"
+                           Drop="dragAndDropPanel_DragDrop"
+                           MouseDown="dragAndDropPanel_Click"
+                           DragLeave="Rectangle_DragLeave"
+                           FontWeight="Bold" />
+
+            </Grid>
+        </Grid>
         <ListBox x:Name="listViewItems"
-                 Height="144"
+                 Height="80"
                  Canvas.Left="-51"
                  RenderTransformOrigin="0.5,0.5"
                  Canvas.Top="-259"
-                 Width="294"
-                 HorizontalAlignment="Center"
+                 Width="154"
+                 HorizontalAlignment="Left"
                  VerticalAlignment="Top"
-                 Margin="0,10,0,0">
+                 Margin="116,32,0,0">
             <ListBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="-1"
@@ -45,24 +62,24 @@
                FontSize="20"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Center"
-               HorizontalAlignment="Center"
+               HorizontalAlignment="Left"
                VerticalAlignment="Top"
                Canvas.Left="-155"
                Canvas.Top="-14"
                Background="{x:Null}"
                Foreground="White"
-               Margin="0,159,0,0"
+               Margin="326,33,0,0"
                Height="38"
                Width="102" />
         <PasswordBox x:Name="passwordTextBox"
-                     HorizontalAlignment="Center"
+                     HorizontalAlignment="Left"
                      VerticalAlignment="Top"
                      Width="132"
                      Height="24"
                      FontSize="18"
                      Canvas.Left="-183"
                      Canvas.Top="43"
-                     Margin="0,197,0,0" />
+                     Margin="311,71,0,0" />
         <CheckBox x:Name="strongerEncrptionCheckBox"
                   Content="Stronger Encryption"
                   HorizontalAlignment="Left"
@@ -74,11 +91,11 @@
                   Canvas.Left="-183"
                   Canvas.Top="80"
                   Foreground="White"
-                  Margin="395,262,0,0"
+                  Margin="290,141,0,0"
                   Height="21" />
         <Button x:Name="encryptBttn"
                 Content="Encrypt"
-                HorizontalAlignment="Center"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Height="33"
                 Width="101"
@@ -87,19 +104,20 @@
                 FontSize="14"
                 Canvas.Left="-163"
                 Canvas.Top="105"
-                Margin="0,224,0,0" />
+                Margin="327,98,0,0" />
         <Button x:Name="deleteSelectedBttn"
                 HorizontalAlignment="Left"
-                Margin="445,61,0,0"
+                Margin="130,120,0,0"
                 VerticalAlignment="Top"
                 Height="42"
-                Width="125"
+                Width="126"
                 Click="deleteSelectedBttn_Click">
             <Button Content="Delete Selected"
-                    Height="35"
+                    Height="34"
                     Width="119"
                     FontWeight="Bold"
-                    FontSize="16" />
+                    FontSize="16"
+                    BorderBrush="#00707070" />
         </Button>
     </Grid>
 </UserControl>
