@@ -67,6 +67,7 @@
                        HorizontalAlignment="Left"
                        Foreground="white"
                        FontSize="24"
+                       Grid.ColumnSpan="2"
                        FontFamily="Times New Roman"
                        Margin="20,0,0,2" />
 
@@ -123,7 +124,7 @@
                            HorizontalAlignment="Center"
                            Foreground="#787878"
                            FontFamily="Times New Roman"
-                           FontSize="11"/>
+                           FontSize="11" />
             </Border>
 
             <!--Exit Button-->
@@ -242,6 +243,15 @@
                             Grid.Column="1"
                             Margin="10"
                             Content="{Binding CurrentView}" />
+
+            <!--Drag and drop overlay panel-->
+            <Border Name="DragOverlayBorder"
+                    Height="430"
+                    Width="780"
+                    Background="White"
+                    Grid.ColumnSpan="2"
+                    Grid.RowSpan="2"
+                    CornerRadius="10"/>
 
         </Grid>
     </Border>

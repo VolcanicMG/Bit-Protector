@@ -10,5 +10,6 @@
         <Setter Property="Opacity"
                 Value="0.5" />
         <!-- Other styling properties you want to apply -->
+        
     </Style>
 </ResourceDictionary>
