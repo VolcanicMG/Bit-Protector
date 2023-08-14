@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid Margin="2,0,-2,0">
-            <Border BorderBrush="Black"
+            <Border BorderBrush="#00000000"
                     BorderThickness="2"
                     AllowDrop="True">
                 <!-- Content of the main Border -->
