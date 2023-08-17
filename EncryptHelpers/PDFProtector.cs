@@ -32,6 +32,7 @@ namespace BitProtector.EncryptHelpers
             saveFileDialog = new SaveFileDialog();
             openFileDialog = new OpenFileDialog();
 
+            openFileDialog.Multiselect = true;
             openFileDialog.Filter = "PDF Files|*.pdf|All Files|*.*";
             saveFileDialog.Filter = "PDF Files|*.pdf|All Files|*.*";
         }

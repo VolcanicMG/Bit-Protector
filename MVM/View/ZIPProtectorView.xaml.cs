@@ -35,6 +35,7 @@ namespace BitProtector.MVM.View
         {
             InitializeComponent();
 
+            openFileDialog.Multiselect = true;
             openFileDialog.Filter = "ZIP files (*.zip)|*.zip|All files (*.*)|*.*";
             saveFileDialog.Filter = "ZIP files (*.zip)|*.zip|All files (*.*)|*.*";
             openFileDialog.FilterIndex = 1;
