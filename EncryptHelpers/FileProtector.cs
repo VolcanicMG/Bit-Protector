@@ -13,7 +13,7 @@ namespace BitProtector.EncryptHelpers
         {
             try
             {
-                string encryptedFilePath = Path.ChangeExtension(outputFilePath, "bin");
+                string encryptedFilePath = Path.ChangeExtension(outputFilePath, "aes");
 
                 byte[] salt = GenerateRandomSalt();
                 byte[] derivedKey = DeriveKeyFromPassword(password, salt);
@@ -34,7 +34,12 @@ namespace BitProtector.EncryptHelpers
 
                     // Add the original file extension as metadata
                     string originalExtension = Path.GetExtension(inputFilePath);
-                    byte[] extensionBytes = Encoding.UTF8.GetBytes(originalExtension);
+                    byte[] extensionBytes = Encoding.ASCII.GetBytes(originalExtension);
+
+                    // Store extension length as a 32-bit integer (4 bytes)
+                    byte[] extensionLengthBytes = BitConverter.GetBytes(extensionBytes.Length);
+                    encryptedFileStream.Write(extensionLengthBytes, 0, extensionLengthBytes.Length); // Store extension length
+
                     encryptedFileStream.Write(extensionBytes, 0, extensionBytes.Length);
 
                     // Encrypt the file content
@@ -43,6 +48,7 @@ namespace BitProtector.EncryptHelpers
 
                 //Finished
                 MessageBox.Show("File encrypted", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                System.Diagnostics.Debug.WriteLine($"Input: {inputFilePath} Output: {encryptedFilePath}");
             }
             catch (Exception e)
             {
@@ -53,60 +59,60 @@ namespace BitProtector.EncryptHelpers
 
         public static void DecryptFile(string encryptedFilePath, string decryptedFilePath, SecureString password)
         {
-            try
+
+            byte[] iv;
+            byte[] salt;
+            byte[] extensionBytes;
+            string originalExtension;
+
+            using (FileStream encryptedFileStream = new FileStream(encryptedFilePath, FileMode.Open))
             {
-                byte[] iv;
-                byte[] salt;
-                byte[] extensionBytes;
-                string originalExtension;
+                iv = new byte[16]; // IV length
+                encryptedFileStream.Read(iv, 0, iv.Length);
 
-                using (FileStream encryptedFileStream = new FileStream(encryptedFilePath, FileMode.Open))
+                salt = new byte[16]; // Salt length
+                encryptedFileStream.Read(salt, 0, salt.Length);
+
+                // Read the length of the extension (4 bytes)
+                byte[] extensionLengthBytes = new byte[sizeof(int)];
+                encryptedFileStream.Read(extensionLengthBytes, 0, sizeof(int));
+                int extensionLength = BitConverter.ToInt32(extensionLengthBytes, 0);
+
+                // Read the extension
+                extensionBytes = new byte[extensionLength];
+                encryptedFileStream.Read(extensionBytes, 0, extensionLength);
+                originalExtension = Encoding.ASCII.GetString(extensionBytes);
+
+                byte[] derivedKey = DeriveKeyFromPassword(password, salt);
+
+                using Aes aesAlg = Aes.Create();
+                aesAlg.Padding = PaddingMode.PKCS7;
+                aesAlg.Key = derivedKey;
+                aesAlg.IV = iv;
+
+                System.Diagnostics.Debug.WriteLine($"Input: {encryptedFilePath} Output: {encryptedFilePath}");
+
+                using (FileStream decryptedFileStream = new FileStream(decryptedFilePath, FileMode.Create))
+                using (CryptoStream cryptoStream = new CryptoStream(encryptedFileStream, aesAlg.CreateDecryptor(), CryptoStreamMode.Read)) // Use CryptoStreamMode.Read
                 {
-                    iv = new byte[16]; // IV length
-                    encryptedFileStream.Read(iv, 0, iv.Length);
-
-                    // Read and restore the salt from metadata
-                    salt = new byte[16]; // Salt length
-                    encryptedFileStream.Read(salt, 0, salt.Length);
-
-                    // Read and restore the original file extension from metadata
-                    extensionBytes = new byte[4]; // Choose an appropriate size
-                    encryptedFileStream.Read(extensionBytes, 0, extensionBytes.Length);
-                    originalExtension = Encoding.UTF8.GetString(extensionBytes);
-
-                    byte[] derivedKey = DeriveKeyFromPassword(password, salt);
-
-                    using Aes aesAlg = Aes.Create();
-                    aesAlg.Padding = PaddingMode.PKCS7;
-                    aesAlg.Key = derivedKey;
-                    aesAlg.IV = iv;
-
-                    // Decrypt the file content
-                    using (FileStream decryptedFileStream = new FileStream(decryptedFilePath, FileMode.Create))
-                    using (CryptoStream cryptoStream = new CryptoStream(encryptedFileStream, aesAlg.CreateDecryptor(), CryptoStreamMode.Read)) // Use CryptoStreamMode.Read
+                    byte[] buffer = new byte[4096];
+                    int bytesRead;
+                    while ((bytesRead = cryptoStream.Read(buffer, 0, buffer.Length)) > 0)
                     {
-                        byte[] buffer = new byte[4096];
-                        int bytesRead;
-                        while ((bytesRead = cryptoStream.Read(buffer, 0, buffer.Length)) > 0)
-                        {
-                            decryptedFileStream.Write(buffer, 0, bytesRead);
-                        }
+                        decryptedFileStream.Write(buffer, 0, bytesRead);
                     }
                 }
-
-                // Rename the decrypted file with the original extension
-                string decryptedFilePathWithExtension = Path.ChangeExtension(decryptedFilePath, originalExtension);
-                File.Move(decryptedFilePath, decryptedFilePathWithExtension);
-
-                // Finished
-                MessageBox.Show("File decrypted", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Error: {e.Message}", "Warning!", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+
+
+            // Rename the decrypted file with the original extension
+            string decryptedFilePathWithExtension = Path.ChangeExtension(decryptedFilePath, originalExtension);
+            File.Move(decryptedFilePath, decryptedFilePathWithExtension);
+
+            // Finished
+            MessageBox.Show("File decrypted", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
-
 
 
         private static byte[] GenerateRandomSalt()
